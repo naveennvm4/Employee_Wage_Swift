@@ -2,22 +2,26 @@ import UIKit
 
 let fullTime = 1
 let partTime = 2
+let fullTimeHrs = 8
+let partTimeHrs = 4
 let ratePerHour = 20
-let daysInMonth = 20
-let empCheck = Int.random(in: 1..<3)
-swith empCheck{
-case fullTime:
-	let Hrs = 16
-	let dailyWage = ratePerHour*Hrs
-	let salary = dailyWage*daysInMonth
-	print(salary)
-	print("FullTime Employee")
-case partTime:
-	let Hrs = 8
-	let dailyWage = ratePerHour*Hrs
-        let salary = dailyWage*daysInMonth
-	print(salary)
-	print("PartTime Employee")
-default:
-	print("salary=0")
+var daysInMonth = 0
+var Hrs = 0
+var totalEmpWage = 0
+while Hrs<100 && daysInMonth<20{
+	let empCheck = Int.random(in: 1..<3)
+	swith empCheck{
+	case fullTime:
+		totalEmpWage += fullTimeHrs*ratePerHour
+		Hrs += fullTimeHrs
+		daysInMonth += 1
+	case partTime:
+		totalEmpWage += partTime*ratePerHour
+		Hrs += partTimeHrs
+		daysInMonth += 1
+	default:
+		print("salary=0")
+	}
 }
+print("Hours = ", Hrs ,"WorkingDays = ", daysInMonth)
+print("salary", toatlEmpWage)
